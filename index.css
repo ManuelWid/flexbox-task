@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    text-align: center;
+}
+
 /* :root {
     --width: 90vw;
     --height: 75vh;
@@ -105,4 +109,8 @@
 
 input {
     margin-right: 2em;
+}
+
+button {
+    font-size: large;
 }
