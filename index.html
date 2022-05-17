@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Bonus ManuelWid</title>
+    <style>
+        :root {
+            --width: 90vw;
+            --newWidth: calc(var(--width) - 2vw);
+            --height: 75vh;
+            --newHeight: calc(var(--height) - 2vh);
+            --space: 10vw;
+            --gap: calc(var(--space) / 10);
+        }
+    </style>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <div class="boxslider">
+        <label for="width">Width:</label>
+        <input type="range" name="width" id="width" value="90" onchange="setWidth()">
+        <label for="height">Height:</label>
+        <input type="range" name="height" id="height" value="75" onchange="setHeight()">
+        <label for="gap">Gap:</label>
+        <input type="range" name="gap" id="gap" value="10" onchange="setGap()">
+    </div>
+
+    <div class="box">
+        <div class="flex">
+            <div class="box1"></div>
+            <div class="flex1">
+                <div class="flex2">
+                    <div class="box2"></div>
+                    <div class="box3"></div>
+                    <div class="box4"></div>
+                </div>
+                <div class="box5"></div>
+                <div class="box6"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function setWidth(){
+            let newWidth = document.getElementById("width").value;
+            let csstext = `--width: ${newWidth}vw`;
+            let element = document.querySelector("style").innerHTML;
+            let pattern = /--width: .*vw/
+            let result = element.match(pattern);
+            let replacetext = element.replace(result, csstext);
+            document.querySelector("style").innerHTML = replacetext;
+        }
+
+        function setHeight(){
+            let newHeight = document.getElementById("height").value;
+            let csstext = `--height: ${newHeight}vh`;
+            let element = document.querySelector("style").innerHTML;
+            let pattern = /--height: .*vh/
+            let result = element.match(pattern);
+            let replacetext = element.replace(result, csstext);
+            document.querySelector("style").innerHTML = replacetext;
+        }
+
+        function setGap(){
+            let newGap = document.getElementById("gap").value;
+            let csstext = `--space: ${newGap}vw`;
+            let element = document.querySelector("style").innerHTML;
+            let pattern = /--space: .*vw/
+            let result = element.match(pattern);
+            let replacetext = element.replace(result, csstext);
+            document.querySelector("style").innerHTML = replacetext;
+        }
+        
+    </script>
+</body>
+</html>
